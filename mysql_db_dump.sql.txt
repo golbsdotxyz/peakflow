@@ -1,0 +1,169 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Datenbank: `peakflow`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `Reminder`
+--
+
+CREATE TABLE `Reminder` (
+  `ID` int(11) NOT NULL,
+  `Datum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Wann wurde gesendet',
+  `Date` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `Reminder`
+--
+
+INSERT INTO `Reminder` (`ID`, `Datum`, `Date`) VALUES
+(1, '2017-04-02 13:07:17', '2017-04-02');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tbl_users`
+--
+
+CREATE TABLE `tbl_users` (
+  `user_id` int(11) NOT NULL,
+  `user_name` varchar(25) NOT NULL,
+  `user_email` varchar(60) NOT NULL,
+  `user_password` varchar(255) NOT NULL,
+  `joining_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `tbl_users`
+--
+
+INSERT INTO `tbl_users` (`user_id`, `user_name`, `user_email`, `user_password`, `joining_date`) VALUES
+(1, 'Admin', 'andre@golbs.xyz', '7594e903dba392c51a4020e051896ac1', '2015-11-08 17:25:19');
+
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `Werte`
+--
+
+CREATE TABLE `Werte` (
+  `ID` int(11) NOT NULL,
+  `Datum` datetime NOT NULL,
+  `Wert1` int(3) NOT NULL,
+  `Wert2` int(3) NOT NULL,
+  `Wert3` int(3) NOT NULL,
+  `Zeitpunkt` int(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Tabellenstruktur für Tabelle `WerteZusatz`
+--
+
+CREATE TABLE `WerteZusatz` (
+  `ID` int(11) NOT NULL,
+  `WerteZusatz` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `WerteZusatzEingabe`
+--
+
+CREATE TABLE `WerteZusatzEingabe` (
+  `ID` int(11) NOT NULL,
+  `WerteID` int(11) NOT NULL,
+  `Eingabe` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tabellenstruktur für Tabelle `Zeitpunkt`
+--
+
+CREATE TABLE `Zeitpunkt` (
+  `ID` int(11) NOT NULL,
+  `Zeitpunkt` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `Zeitpunkt`
+--
+
+INSERT INTO `Zeitpunkt` (`ID`, `Zeitpunkt`) VALUES
+(1, 'früh'),
+(2, 'abends');
+
+--
+-- Indizes der exportierten Tabellen
+--
+
+--
+-- Indizes für die Tabelle `tbl_users`
+--
+ALTER TABLE `tbl_users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indizes für die Tabelle `Werte`
+--
+ALTER TABLE `Werte`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indizes für die Tabelle `WerteZusatz`
+--
+ALTER TABLE `WerteZusatz`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indizes für die Tabelle `WerteZusatzEingabe`
+--
+ALTER TABLE `WerteZusatzEingabe`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indizes für die Tabelle `Zeitpunkt`
+--
+ALTER TABLE `Zeitpunkt`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT für exportierte Tabellen
+--
+
+--
+-- AUTO_INCREMENT für Tabelle `tbl_users`
+--
+ALTER TABLE `tbl_users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT für Tabelle `Werte`
+--
+ALTER TABLE `Werte`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+--
+-- AUTO_INCREMENT für Tabelle `WerteZusatz`
+--
+ALTER TABLE `WerteZusatz`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+--
+-- AUTO_INCREMENT für Tabelle `WerteZusatzEingabe`
+--
+ALTER TABLE `WerteZusatzEingabe`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+--
+-- AUTO_INCREMENT für Tabelle `Zeitpunkt`
+--
+ALTER TABLE `Zeitpunkt`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+
+  
