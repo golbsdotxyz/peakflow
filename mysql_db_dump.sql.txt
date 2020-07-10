@@ -43,7 +43,7 @@ CREATE TABLE `tbl_users` (
 --
 
 INSERT INTO `tbl_users` (`user_id`, `user_name`, `user_email`, `user_password`, `joining_date`) VALUES
-(1, 'Admin', 'andre@golbs.xyz', '7594e903dba392c51a4020e051896ac1', '2015-11-08 17:25:19');
+(1, 'admin', 'admin@domain.tdl', '21232f297a57a5a743894a0e4a801fc3', '2015-11-08 17:25:19');
 
 
 -- --------------------------------------------------------
